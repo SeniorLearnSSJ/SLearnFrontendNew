@@ -3,7 +3,7 @@ export {default as AtriumScreen} from './auth/AtriumScreen';
 export {default as SignInScreen} from './auth/SignInScreen';
 export {default as RegisterScreen} from './auth/RegisterScreen';
 
-export {default as GuestOfficialBulletinListScreen} from './auth/GuestOfficialBulletinListScreen';
+export {default as GuestScreen} from './auth/GuestScreen';
 
 //User
 export {default as UserMemberProfileScreen} from './user/UserMemberProfileScreen';
