@@ -12,24 +12,21 @@ export type RootStackParamList = {
     Register: undefined;
     Guest: undefined;
     UserMenu: undefined;
-    UserProfile: {
-        profile:IUserDetails;
-        UserBulletinList: IMemberBulletin[];
-    }
-    UserSettings: {
-        userSettings:IUserSettings;
-    }
+    UserProfile:undefined;
+    UserSettings: undefined;
     CreateMemberBulletin: undefined;
     EditMemberBulletin: {
         memberBulletin: IMemberBulletin;
     }
-    MemberBulletinListType: IMemberBulletin[];
-    MemberBulletinDetail: IMemberBulletin;
+    MemberBulletinListType: undefined;
+    MemberBulletinDetail: {item:IMemberBulletin};
     
     CreateOfficialBulletin: undefined;
     EditOfficialBulletin: {
         officialBulletin: IOfficialBulletin;
     }
-    OfficialBulletinListType: IOfficialBulletin[];
-    OfficialBulletinDetail: IOfficialBulletin;
+    OfficialBulletinList: IOfficialBulletin[];
+    OfficialBulletinDetail: {item: IOfficialBulletin};
+
+    AdminScreen: undefined;
 }

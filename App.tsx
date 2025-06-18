@@ -1,24 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import {FontSizeProvider} from "./context/FontSizeContext";
+import ScreenNavigator from "./ScreenNavigator";
+import {AuthProvider, AuthContext} from "./context/AuthContext";
+import {BulletinProvider} from "./context/BulletinContext";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <NavigationContainer>
-        
-
-      </NavigationContainer>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <AuthProvider>
+        <FontSizeProvider>
+          <AuthContext.Consumer>
+            {(auth) => auth?.isLoggedIn?.() ? (
+              <BulletinProvider>
+                <ScreenNavigator />
+              </BulletinProvider>
+            ) : (
+              <ScreenNavigator />
+            )
+            }
+          </AuthContext.Consumer>
+        </FontSizeProvider>
+      </AuthProvider>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

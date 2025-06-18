@@ -22,4 +22,5 @@ export {default as EditOfficialBulletinScreen} from './official/EditOfficialBull
 export {default as OfficialBulletinListScreen} from './official/OfficialBulletinListScreen';
 export {default as OfficialBulletinDetailScreen} from './official/OfficialBulletinDetailScreen';
 
-
+//Admin Screen
+export {default as AdminScreen} from './admin/AdminScreen';

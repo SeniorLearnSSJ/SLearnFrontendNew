@@ -3,6 +3,7 @@ import {
     UserRole,
     MemberBulletinCategory,
 } from './Enums';
+import {DoublyLinkedList} from "./CustomListType";
 import {ReactNode } from "react";
 /*  Use Interfaces for defining object shape (model, props, data objects)
     Use Types for complex types like unions types, tuples, working with primitives
@@ -25,14 +26,14 @@ export interface IUserSettings {
     darkMode: boolean;
     enableNotifications: boolean;
 }
-
+//IItem
 export interface IMemberBulletin {
     id: string;
     title: string;
     content: string;
     category: MemberBulletinCategory;
-    createdById: string;
-    createdByUsername: string;
+    createdById: string |null;
+    createdByUsername: string |null;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -41,10 +42,24 @@ export interface IOfficialBulletin {
     id: string;
     title: string;
     content: string;
-    createdById: string;
-    createdByUsername: string;
+    createdById: string |null;
+    createdByUsername: string|null;
     createdAt: Date;
     updatedAt: Date;
+}
+
+export interface IResponseLogin {
+    success: boolean;
+    message?: string;
+    data?: {
+    accessToken: string;
+    role: string;
+    }
+}
+
+export interface IResponseRegister {
+    success: boolean;
+    message?: string;
 }
 
 export interface AuthContextType{
@@ -58,7 +73,29 @@ export interface AuthContextType{
     setUsername: (setusername: string | null) => void;
     userId: string | null;
     setUserId:(userId: string | null) => void;
+    isLoggedIn: () => boolean;
 }
+
+/**
+ * This defines the shape of the BulletinContextType, which contains constants and functions which were shared throughout the app.
+ */
+
+
+//renamed from ItemContextType
+export interface IBulletinContext{
+    bulletins: IMemberBulletin[];
+    saveBulletins: (item: IMemberBulletin) => void;
+    deleteBulletin: (id: string) => void;
+    officialBulletinList: DoublyLinkedList;
+    officialBulletins: IOfficialBulletin[];
+    saveOfficialBulletins: (item: IOfficialBulletin) => void;
+    deleteOfficialBulletins: (id: string) => void;
+    loadingMember: boolean;
+    loadingOfficial: boolean;
+    refreshBulletins: () => Promise<void>;
+}
+
+
 
 export interface FontContextType {
     fontSize: number;
