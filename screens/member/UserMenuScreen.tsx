@@ -41,7 +41,7 @@ export default function UserMenuScreen({
             onPress={() => navigation.navigate("SignIn")}
           >
             <Image
-              source={require("../Back02.png")} // or your image path
+              source={require("../../assets/Back02.png")} // or your image path
               style={styles.logo}
             />
           </TouchableOpacity>
@@ -51,7 +51,7 @@ export default function UserMenuScreen({
             onPress={() => navigation.navigate("Atrium")}
           >
             <Image
-              source={require("../Logo2.png")} // or your image path
+              source={require("../../assets/Logo2.png")} // or your image path
               style={styles.logo}
             />
           </TouchableOpacity>
@@ -62,7 +62,7 @@ export default function UserMenuScreen({
               onPress={() => navigation.navigate("UserProfile")}
             >
               <Image
-                source={require("../Profile.png")} // or your image path
+                source={require("../../assets/Profile.png")} // or your image path
                 style={styles.logo}
               />
             </TouchableOpacity>

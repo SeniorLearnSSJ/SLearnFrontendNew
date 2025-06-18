@@ -148,7 +148,7 @@ export default function EditOfficialBulletinScreen({navigation,route,}: EditOffi
               onPress={() => navigation.navigate("Atrium")}
             >
               <Image
-                source={require("../Logo2.png")} // or your image path
+                source={require("../../assets/Logo2.png")} // or your image path
                 style={styles.logo}
               />
             </TouchableOpacity>
@@ -159,7 +159,7 @@ export default function EditOfficialBulletinScreen({navigation,route,}: EditOffi
                 onPress={() => navigation.navigate("UserProfile")}
               >
                 <Image
-                  source={require("../Profile.png")} // or your image path
+                  source={require("../../assets/Profile.png")} // or your image path
                   style={styles.logo}
                 />
               </TouchableOpacity>

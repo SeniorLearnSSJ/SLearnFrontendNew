@@ -25,7 +25,7 @@ export type RootStackParamList = {
     EditOfficialBulletin: {
         officialBulletin: IOfficialBulletin;
     }
-    OfficialBulletinList: IOfficialBulletin[];
+    OfficialBulletinList: undefined;
     OfficialBulletinDetail: {item: IOfficialBulletin};
 
     AdminScreen: undefined;
