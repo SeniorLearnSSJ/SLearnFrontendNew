@@ -91,6 +91,9 @@ const mapped = officialBulletins.map(b=>({
   id: b.id,
   title: b.title,
   datetime: new Date(b.createdAt),
+  updatedAt: new Date(b.updatedAt),
+  createdById: b.createdById ?? "",
+  createdByUsername:b.createdByUsername ?? "",
   content: b.content,
 }))
 
