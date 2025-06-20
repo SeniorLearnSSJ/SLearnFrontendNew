@@ -23,7 +23,7 @@ import { useAuth } from "../../context/AuthContext";
 import { FontContext } from "../../context/FontSizeContext";
 import { StyleSheet } from "react-native";
 import { styles } from "../../styles";
-
+import {API_Endpoint} from "../../Endpoints";
 /**
  * Adds the screen to navigation.
  */
@@ -61,7 +61,7 @@ const OfficialBulletinListScreen: React.FC<Props> = ({ navigation }) => {
   useEffect(() => {
     const getItems = async () => {
       try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(API_Endpoint.Official, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

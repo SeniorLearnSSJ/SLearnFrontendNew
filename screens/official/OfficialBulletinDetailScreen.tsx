@@ -19,6 +19,7 @@ import { ListNode, DoublyLinkedList } from "../../types/CustomListType";
 import { useAuth } from "../../context/AuthContext";
 import { FontContext } from "../../context/FontSizeContext";
 import { StyleSheet } from "react-native";
+import {API_Endpoint} from "../../Endpoints";
 
 /**
  * This adds the screen to the navigation stack.
@@ -65,7 +66,7 @@ export default function OfficialBulletinDetailsScreen({
    */
   const deleteItem = async (idToDelete: string) => {
     try {
-      const response = await fetch(`${API_URL}/${idToDelete}`, {
+      const response = await fetch(`${API_Endpoint.Official}/${idToDelete}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

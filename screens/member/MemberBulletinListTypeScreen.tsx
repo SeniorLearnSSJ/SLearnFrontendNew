@@ -26,7 +26,7 @@ import { IMemberBulletin, IBulletinContext } from "../../types/Interfaces";
 import { Trie, TrieNode } from "../../types/Trie";
 import { useAuth } from "../../context/AuthContext";
 import { MemberBulletinCategory } from "../../types/Enums";
-
+import {API_Endpoint} from "../../Endpoints";
 /**
  * This enumerable mapper maps the enums from string to number.
  */
@@ -130,7 +130,7 @@ const MemberBulletinListType: React.FC<Props> = ({ navigation }) => {
 
         try {
           //const response = await fetch(API_URL);
-          const response = await fetch(API_URL, {
+          const response = await fetch(API_Endpoint.Member, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

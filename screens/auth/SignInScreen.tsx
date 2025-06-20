@@ -9,7 +9,7 @@ import { useContext } from "react";
 import {useAuth, AuthContext} from "../../context/AuthContext";
 import {FontContext} from "../../context/FontSizeContext";
 import { styles } from "../../styles";
-
+import {API_Endpoint} from "../../Endpoints";
 
 /**
  * This adds the screen to the navigation stack.

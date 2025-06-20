@@ -19,7 +19,7 @@ import { useContext } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { FontContext } from "../../context/FontSizeContext";
 import { StyleSheet } from "react-native";
-
+import {API_Endpoint} from "../../Endpoints";
 /**
  * This makes the URL readable and easier to handle
  */
@@ -56,7 +56,7 @@ export default function MemberBulletinDetailScreen({navigation,route,}: MemberBu
    */
   const deleteItem = async (idToDelete: string) => {
     try {
-      const response = await fetch(`${API_URL}/${idToDelete}`, {
+      const response = await fetch(`${API_Endpoint.Member}/${idToDelete}`, {
         method: "DELETE",
 
         headers: {

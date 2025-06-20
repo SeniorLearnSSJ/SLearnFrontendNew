@@ -18,7 +18,8 @@ import { useContext, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { FontContext } from "../../context/FontSizeContext";
 import { ScrollView } from "react-native";
-import { styles } from "../../styles";
+import { styles } from "../../styles"
+import {API_Endpoint} from "../../Endpoints";
 
 /**
  * This adds the screen to the navigation stack.
@@ -76,7 +77,7 @@ export default function EditOfficialBulletinScreen({navigation,route,}: EditOffi
     };
 
     try {
-      const response = await fetch(`${API_BASE}/${updatedBulletin.id}`, {
+      const response = await fetch(`${API_Endpoint.Official}/${updatedBulletin.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +107,7 @@ export default function EditOfficialBulletinScreen({navigation,route,}: EditOffi
    */
   const deleteItem = async (id: string) => {
     try {
-      const response = await fetch(`${API_BASE}/${id}`, {
+      const response = await fetch(`${API_Endpoint.Official}/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

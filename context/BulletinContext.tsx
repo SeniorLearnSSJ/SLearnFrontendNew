@@ -6,7 +6,7 @@ import { IBulletinContext, IMemberBulletin, IOfficialBulletin } from "../types/I
 import { DoublyLinkedList } from "../types/CustomListType";
 import React, { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import {API_Endpoint} from "../Endpoints";
 /**
  * This function creates a context object of type ItemContextType.  It has a default initial value of null.
  */
@@ -46,7 +46,7 @@ export const BulletinProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         }
         // Fetch fresh data from API
         const response = await fetch(
-          "http://192.168.1.244:5143/api/bulletins/member"
+          API_Endpoint.Member
         );
         const json = await response.json();
         setBulletins(json.data ?? []);
@@ -68,7 +68,7 @@ export const BulletinProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       async function fetchOfficialBulletins() {
         setLoadingOfficial(true)
         try {
-          const response = await fetch("http://192.168.1.244:5143/api/bulletins/official");
+          const response = await fetch(API_Endpoint.Official);
           const json = await response.json();
           const fetchedOfficialBulletins: IOfficialBulletin[] = json.data ?? [];
           setOfficialBulletins(fetchedOfficialBulletins); 
@@ -192,7 +192,7 @@ const mapped = officialBulletins.map(b=>({
 const refreshBulletins = async () => {
   setLoadingMember(true);
   try {
-    const response = await fetch("http://192.168.1.244:5143/api/bulletins/member");
+    const response = await fetch(API_Endpoint.Member);
     const json = await response.json();
     setBulletins(json.data ?? []);
   } catch (error) {

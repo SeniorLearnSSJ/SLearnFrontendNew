@@ -22,7 +22,7 @@ import { useAuth } from "../../context/AuthContext";
 import { StyleSheet } from "react-native";
 import { styles } from "../../styles";
 import { MemberBulletinCategory } from "../../types/Enums";
-
+import {API_Endpoint} from "../../Endpoints";
 /**
  * Adds the screen to navigation stack.
  */
@@ -85,7 +85,7 @@ export default function CreateMemberBulletinScreen({ navigation }: AddScreenProp
     console.log("Payload JSON:", JSON.stringify(newBulletin));
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(API_Endpoint.Member, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

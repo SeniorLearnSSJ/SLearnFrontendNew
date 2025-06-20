@@ -1,5 +1,6 @@
 import axios from "axios";
 import {IResponseLogin} from "../types/Interfaces";
+import {API_Endpoint} from "../Endpoints";
 // Create Axios instance
 
 /**
@@ -21,7 +22,7 @@ export const api = axios.create({
 export async function ApiLogin(username: string, password: string): 
 Promise<{ success: boolean; token?: string; role?: string; message?: string }> {
   try {
-    const response = await api.post<IResponseLogin>("http://192.168.1.244:5143/api/auth/sign-in", {
+    const response = await api.post<IResponseLogin>(API_Endpoint.Auth.SignIn, {
       username,
       password,
     });

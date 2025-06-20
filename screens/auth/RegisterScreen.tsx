@@ -20,13 +20,14 @@ import { useContext } from "react";
 import { FontContext } from "../../context/FontSizeContext";
 import { StyleSheet } from "react-native";
 import { IResponseRegister} from "../../types/Interfaces";
+import {API_Endpoint} from "../../Endpoints";
 
 type RegisterScreenProps = NativeStackScreenProps<RootStackParamList,"Register">;
 
 /**
  * Makes URL readable.
  */
-const API_BASE = "http://192.168.1.244:5143/api/auth";
+
 
 /**
  * Defines the component
@@ -69,7 +70,7 @@ export default function RegisterScreen({ navigation }: RegisterScreenProps) {
     setLoading(true);
 
     try {
-      const res = await api.post<IResponseRegister>(`${API_BASE}/register`, {
+      const res = await api.post<IResponseRegister>(API_Endpoint.Auth.Register, {
         username,
         password,
         firstName,

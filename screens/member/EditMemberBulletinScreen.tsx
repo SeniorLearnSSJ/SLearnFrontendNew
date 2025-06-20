@@ -14,6 +14,7 @@ import { StyleSheet } from "react-native";
 
 import { useAuth } from "../../context/AuthContext";
 import { FontContext } from "../../context/FontSizeContext";
+import {API_Endpoint} from "../../Endpoints";;
 
 /**
  * This adds the screen to the navigation stack.
@@ -87,7 +88,7 @@ export default function EditMemberBulletinScreen({ navigation, route }: EditScre
      * At this point, the handleSubmit function retrieves the data at the API and updates it using the saveBulletins function.
      */
     try {
-      const response = await fetch(`${API_BASE}/${updatedBulletin.id}`, {
+      const response = await fetch(`${API_Endpoint.Member}/${updatedBulletin.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -119,7 +120,7 @@ export default function EditMemberBulletinScreen({ navigation, route }: EditScre
 
   const deleteItem = async (idToDelete: string) => {
     try {
-      const response = await fetch(`${API_BASE}/${idToDelete}`, {
+      const response = await fetch(`${API_Endpoint.Member}/${idToDelete}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

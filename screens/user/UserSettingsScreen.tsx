@@ -26,7 +26,7 @@ import { toggleFromFontSize } from "../../UIComponents/toggleFont";
 import { FontContext } from "../../context/FontSizeContext";
 import { enableFreeze, enableScreens } from "react-native-screens";
 import { StyleSheet } from "react-native";
-
+import {API_Endpoint} from "../../Endpoints";
 /**
  * Adds screen to navigation stack.
  */
@@ -94,7 +94,7 @@ export default function UserSettingsScreen({ navigation }: SettingsScreenProps) 
 
   const getSettings = async () => {
     try {
-      const response = await fetch(Settings_API_URL, {
+      const response = await fetch(API_Endpoint.Settings, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -135,7 +135,7 @@ export default function UserSettingsScreen({ navigation }: SettingsScreenProps) 
     enableNotifications: boolean
   ) => {
     try {
-      const response = await fetch(Settings_API_URL, {
+      const response = await fetch(API_Endpoint.Settings, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

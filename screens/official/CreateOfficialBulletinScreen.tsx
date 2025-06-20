@@ -21,7 +21,7 @@ import { FontContext } from "../../context/FontSizeContext";
 import { useAuth } from "../../context/AuthContext";
 import { ScrollView } from "react-native-gesture-handler";
 import { styles } from "../../styles";
-
+import {API_Endpoint} from "../../Endpoints"
 /**
  * This constant sets the backend API to a more readable format.
  */
@@ -83,7 +83,7 @@ export default function CreateOfficialBulletinScreen({
         headers["Authorization"] = "Bearer " + token;
       }
 
-      const response = await fetch(API_URL, {
+      const response = await fetch(API_Endpoint.Official, {
         method: "POST",
         headers: headers,
         body: JSON.stringify(newBulletin),

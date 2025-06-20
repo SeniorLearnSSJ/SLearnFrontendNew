@@ -20,6 +20,7 @@ import { useAuth } from "../../context/AuthContext";
 import { BulletinContext } from "../../context/BulletinContext";
 import { FontContext } from "../../context/FontSizeContext";
 import { StyleSheet } from "react-native";
+import {API_Endpoint} from "../../Endpoints";
 
 
 /**
@@ -81,7 +82,7 @@ export default function UserMemberProfileScreen({ navigation }: ProfileScreenPro
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(API_Endpoint.User, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -139,7 +140,7 @@ export default function UserMemberProfileScreen({ navigation }: ProfileScreenPro
     }
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(API_Endpoint.User, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
